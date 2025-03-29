@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;  
+  position: relative;
+}
+
+.formPanel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 50;
+}
+
+.formContent {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  position: relative;
+  z-index: 50;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: left;
+  margin-bottom: 2rem;
+}
+
+.description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .formPanel {
+    padding: 1rem;
+  }
+  
+  .formContent {
+    padding: 1rem;
+  }
+}

@@ -1,0 +1,119 @@
+/* src/components/admin/tripdetails/shared.module.css */
+.input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #e7decf;
+    border-radius: 6px;
+    background-color: white;
+    color: #001c30;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+  
+  .input:focus {
+    outline: none;
+    border-color: #17403a;
+    box-shadow: 0 0 0 2px rgba(23, 64, 58, 0.1);
+  }
+  
+  .textarea {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #e7decf;
+    border-radius: 6px;
+    background-color: white;
+    color: #001c30;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .textarea:focus {
+    outline: none;
+    border-color: #17403a;
+    box-shadow: 0 0 0 2px rgba(23, 64, 58, 0.1);
+  }
+  
+  .button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.625rem 1rem;
+    background-color: #17403a;
+    color: #f6f3ee;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.875rem;
+    font-weight: 500;
+    gap: 0.5rem;
+  }
+  
+  .button:hover {
+    background-color: #0f2d28;
+  }
+  
+  .buttonOutline {
+    background-color: transparent;
+    border: 1px solid #17403a;
+    color: #17403a;
+  }
+  
+  .buttonOutline:hover {
+    background-color: rgba(23, 64, 58, 0.1);
+  }
+  
+  .card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+  }
+  
+  .label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #17403a;
+    margin-bottom: 0.5rem;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .col8 {
+    grid-column: span 8;
+  }
+  
+  .col4 {
+    grid-column: span 4;
+  }
+  
+  .col6 {
+    grid-column: span 6;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 1280px) {
+    .col8, .col4 {
+      grid-column: span 6;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .col8, .col4, .col6 {
+      grid-column: span 12;
+    }
+    
+    .grid {
+      gap: 1rem;
+    }
+  }

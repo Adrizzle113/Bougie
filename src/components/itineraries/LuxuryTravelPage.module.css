@@ -1,0 +1,106 @@
+/* src/components/itineraries/LuxuryTravelPage.module.css */
+.container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+  }
+  
+  .leftPanel {
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #1a1a1a;
+    overflow: hidden;
+    display: none;
+  }
+  
+  .imageContainer {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .contentPanel {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #e7decf;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .contentWrapper {
+    padding-top: 64px; /* Height of the navigation bar */
+  }
+  
+  .section {
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+    scroll-margin-top: 64px; /* Ensures sections scroll to correct position */
+  }
+
+  .stickyHeader {
+    position: fixed;
+    top: 64px; /* Height of the navigation bar */
+    left: 50%;
+    width: 50%;
+    background-color: #e7decf;
+    padding: 1rem 2rem;
+    z-index: 40;
+    transition: transform 0.3s ease;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .headerHidden {
+    transform: translateY(-100%);
+  }
+  
+  .stickyTitle {
+    font-family: 'krylon', serif;
+    font-size: 2rem;
+    color: #001c30;
+    margin: 0;
+  }  
+  
+  /* Desktop styles */
+  @media (min-width: 1024px) {
+    .stickyHeader {
+      left: 0;
+      width: 100%;
+    }
+    
+    .leftPanel {
+      display: block;
+    }
+  
+    .contentPanel {
+      width: 50%;
+      margin-left: 50%;
+    }
+  
+    .section {
+      padding: 4rem 2rem;
+    }
+  }
+  
+  /* Mobile/tablet styles */
+  @media (max-width: 1023px) {
+    .leftPanel {
+      display: none;
+    }
+  
+    .contentPanel {
+      margin-left: 0;
+    }
+  
+    .section {
+      padding: 2rem 1rem;
+    }
+  
+    .contentWrapper {
+      padding-top: 64px;
+    }
+  }

@@ -1,0 +1,268 @@
+/* src/components/admin/tripdetails/tabs/itinerarytab/styles/timeline.module.css */
+
+/* Timeline Container Styles */
+.timelineContainer {
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .timelineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    background-color: red;
+  }
+  
+  .timelineTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 0.75rem;
+  }
+  
+  /* Activity Styles */
+  .activityContainer {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .activityContainer:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+  }
+  
+  .highlighted {
+    border-left: 3px solid #eab308;
+    background-color: rgba(234, 179, 8, 0.05);
+  }
+  
+  .activityHeader {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .dragHandle {
+    padding: 0.25rem;
+    color: #9ca3af;
+    cursor: grab;
+    touch-action: none;
+  }
+  
+  .dragHandle:active {
+    cursor: grabbing;
+  }
+  
+  .activityContent {
+    padding: 1rem;
+  }
+  
+  .starButton {
+    padding: 0.5rem;
+    color: #9ca3af;
+    transition: all 0.2s ease;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+  }
+  
+  .starButton:hover {
+    color: #eab308;
+    background-color: rgba(234, 179, 8, 0.1);
+  }
+  
+  .starButtonActive {
+    color: #eab308;
+    background-color: rgba(234, 179, 8, 0.1);
+  }
+  
+  .timeInputsContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .timeInputWrapper {
+    position: relative;
+  }
+  
+  .timeIcon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6b7280;
+    pointer-events: none;
+  }
+  
+  .timeInput {
+    width: 100%;
+    padding: 0.625rem 0.625rem 0.625rem 2.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+  }
+  
+  .description {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.625rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    resize: vertical;
+    margin-top: 1rem;
+  }
+
+  .typeSelect {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    background-color: white;
+    color: #374151;
+  }
+  
+  .typeSelect:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  }
+  
+  .typeDropdownContent {
+    background-color: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    width: 100%;
+  }
+  
+  .typeDropdownItem {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+    background: white;
+  }
+  
+  .typeDropdownItem:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* Empty State */
+  .emptyState {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f9fafb;
+    border: 2px dashed #e5e7eb;
+    border-radius: 0.5rem;
+  }
+  
+  .emptyStateIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #9ca3af;
+    margin: 0 auto 0.75rem;
+  }
+  
+  .emptyStateTitle {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 0.5rem;
+  }
+  
+  .emptyStateText {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  
+  /* Button Styles */
+  .activityButton,
+  .detailsButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .activityButton {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+  }
+  
+  .activityButton:hover {
+    background-color: #dbeafe;
+  }
+  
+  .detailsButton {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+  }
+  
+  .detailsButton:hover {
+    background-color: #dcfce7;
+  }
+  
+  .deleteButton {
+    padding: 0.5rem;
+    color: #ef4444;
+    transition: all 0.2s ease;
+    border-radius: 0.375rem;
+    background: none;
+    border: none;
+  }
+  
+  .deleteButton:hover {
+    background-color: #fee2e2;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 640px) {
+    .timeInputsContainer {
+      grid-template-columns: 1fr;
+    }
+  
+    .buttonGroup {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .activityButton,
+    .detailsButton {
+      width: 100%;
+      justify-content: center;
+    }
+  }

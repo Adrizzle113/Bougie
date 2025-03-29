@@ -1,0 +1,278 @@
+.container {
+  position: relative;
+  min-height: 100vh;
+  background: #e7decf;
+}
+
+.stickyHeader {
+  position: sticky;
+  top: 64px;
+  background-color: #e7decf;
+  z-index: 40;
+  border-bottom: 1px solid rgba(0, 28, 48, 0.1);
+}
+
+.headerContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+}
+
+.title {
+  font-family: 'krylon', serif;
+  font-size: 3rem;
+  color: #001c30;
+}
+
+.mainContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.subtitle {
+  font-family: var(--font-geist-mono);
+  font-size: 0.9rem;
+  color: #17403a;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mainContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.tabContainer {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(0, 28, 48, 0.1);
+  position: relative;
+}
+
+.tabButton {
+  display: flex;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 0.95rem;
+  color: #17403a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-geist-mono);
+  letter-spacing: 0.02em;
+}
+
+.tabButton:hover {
+  color: #001c30;
+  transform: translateY(-2px);
+}
+
+.tabButtonActive {
+  color: #001c30;
+  position: relative;
+}
+
+.tabButtonActive::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #17403a, #001c30);
+}
+
+.tabIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.75rem;
+  stroke-width: 1.5;
+}
+
+.contentSection {
+  margin-top: 3rem;
+  position: relative;
+}
+
+.contentSection::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #17403a, transparent);
+}
+
+.accommodationList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.accommodationCard {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  background: rgba(246, 243, 238, 0.5);
+  border-radius: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(23, 64, 58, 0.05);
+}
+
+.accommodationCard:hover {
+  transform: translateX(8px);
+  background: rgba(246, 243, 238, 0.8);
+  box-shadow: 0 8px 12px -2px rgba(0, 0, 0, 0.08);
+}
+
+.accommodationCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 4px;
+  background: linear-gradient(to bottom, #17403a, #001c30);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.accommodationCard:hover::before {
+  opacity: 1;
+}
+
+.dayInfo {
+  font-family: var(--font-geist-mono);
+  font-size: 0.9rem;
+  color: #17403a;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.days {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.nightsInfo {
+  font-size: 0.85rem;
+  padding: 0.5rem 0.75rem;
+  background: linear-gradient(to right, rgba(23, 64, 58, 0.05), rgba(23, 64, 58, 0.1));
+  border-radius: 4px;
+  display: inline-block;
+  color: #17403a;
+}
+
+.locationName {
+  font-family: 'krylon', serif;
+  font-size: 1.5rem;
+  color: #001c30;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.roomType {
+  color: #17403a;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-geist-mono);
+  letter-spacing: 0.02em;
+}
+
+.boardBasis {
+  color: #17403a;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: rgba(23, 64, 58, 0.05);
+  border-radius: 4px;
+}
+
+.overview {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #17403a;
+  padding: 2rem;
+  background: rgba(246, 243, 238, 0.5);
+  border-radius: 1rem;
+  border: 1px solid rgba(23, 64, 58, 0.05);
+}
+
+.flightInfo {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #17403a;
+  padding: 2rem;
+  background: rgba(246, 243, 238, 0.5);
+  border-radius: 1rem;
+  border: 1px solid rgba(23, 64, 58, 0.05);
+}
+
+.flightNotes {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(23, 64, 58, 0.1);
+}
+
+.flightDetail {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flightDetail strong {
+  font-family: var(--font-geist-mono);
+  color: #001c30;
+  letter-spacing: 0.02em;
+}
+
+.emptyState {
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+  padding: 3rem;
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .mainContent {
+    padding: 2rem 1rem;
+  }
+
+  .tabContainer {
+    gap: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .accommodationCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .dayInfo {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
