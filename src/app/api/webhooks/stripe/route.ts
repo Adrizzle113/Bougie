@@ -16,6 +16,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.text();
     const headersList = headers();
+    // Fix: use await with headersList
     const signature = headersList.get('stripe-signature');
 
     if (!signature || !endpointSecret) {

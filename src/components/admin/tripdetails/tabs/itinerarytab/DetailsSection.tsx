@@ -22,7 +22,8 @@ import {
   Link as LinkIcon,
   ImagePlus
 } from 'lucide-react';
-import type { DaySectionType, MoreDetails, TripImage } from '@/types/luxuryTrip.types';
+import type { DaySectionType, MoreDetails } from '@/types/luxuryTrip.types';
+import { createNewTripImage } from '@/lib/utils';
 import styles from './DetailsSection.module.css';
 
 interface DetailsSectionProps {
@@ -69,7 +70,10 @@ export default function DetailsSection({
 
     try {
       const { url, alt } = await onImageUpload(file);
-      const newImage: TripImage = { src: url, alt, section: 'itinerary' };
+      
+      // Use createNewTripImage to ensure all required properties are included
+      const newImage = createNewTripImage(url, alt, 'itinerary');
+      
       onUpdate({
         ...details,
         images: [...(details.images || []), newImage]

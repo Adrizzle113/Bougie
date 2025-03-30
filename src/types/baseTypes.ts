@@ -16,19 +16,59 @@ export type AdminTripStatus = 'draft' | 'published' | 'archived';
 export type UserTripStatus = 'upcoming' | 'completed' | 'cancelled';
 export type TripStatus = AdminTripStatus | UserTripStatus;
 
-// Constants for activity types
+// Define activity types - ensuring consistent definitions
+export type ActivityType = 
+  | 'Sightseeing'
+  | 'Location Visit'
+  | 'Accommodation'
+  | 'Cruise'
+  | 'Train Journey'
+  | 'Bus Transfer'
+  | 'Check-in/out'
+  | 'Arrival'
+  | 'Departure'
+  | 'Flight'
+  | 'Transfer'
+  | 'Activity';
+
+// Define image section types consistently
+export type TripImageSection = 
+  | 'overview' 
+  | 'itinerary' 
+  | 'terms' 
+  | 'travelBrief' 
+  | 'map' 
+  | 'inclusions'
+  | 'cta'
+  | 'locations';
+
+// Define day section types
+export type DaySectionType = 
+  | 'Activities'
+  | 'Accommodations'
+  | 'Property Overview';
+
+// TripImage type with consistent ID requirement
+export interface TripImage extends BaseItem, BaseImage {
+  section?: TripImageSection;
+  dayIndex?: number;
+  itemIndex?: number;
+}
+
+// Constants for cleaner code
 export const ACTIVITY_TYPES = {
   SIGHTSEEING: 'Sightseeing',
-  LOCATION: 'Location',
+  LOCATION: 'Location Visit',
   ACCOMMODATION: 'Accommodation',
   CRUISE: 'Cruise',
-  TRAIN: 'Train',
-  BUS: 'Bus',
+  TRAIN: 'Train Journey',
+  BUS: 'Bus Transfer',
   CHECK_IN_OUT: 'Check-in/out',
   ARRIVAL: 'Arrival',
   DEPARTURE: 'Departure',
   FLIGHT: 'Flight',
-  TRANSFER: 'Transfer'
+  TRANSFER: 'Transfer',
+  ACTIVITY: 'Activity',
 } as const;
 
 // Constants for image sections
@@ -49,8 +89,3 @@ export const DAY_SECTIONS = {
   ACCOMMODATIONS: 'Accommodations',
   PROPERTY_OVERVIEW: 'Property Overview'
 } as const;
-
-// Derived types from constants
-export type ActivityType = typeof ACTIVITY_TYPES[keyof typeof ACTIVITY_TYPES];
-export type TripImageSection = typeof TRIP_IMAGE_SECTIONS[keyof typeof TRIP_IMAGE_SECTIONS];
-export type DaySectionType = typeof DAY_SECTIONS[keyof typeof DAY_SECTIONS];

@@ -2,13 +2,14 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { LuxuryTripData, TripImage } from '@/types/luxuryTrip.types';
+import { LuxuryTripData } from '@/types/luxuryTrip.types';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Upload, ImagePlus } from 'lucide-react';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import styles from './InclusionsTab.module.css';
 import { uploadImage } from '@/lib/uploadHelpers';
+import { createNewTripImage } from '@/lib/utils';
 
 interface InclusionsTabProps {
   tripData: LuxuryTripData;
@@ -52,12 +53,14 @@ export function InclusionsTab({ tripData, updateField }: InclusionsTabProps) {
     try {
       const { url, alt } = await uploadImage(file, 'inclusions');
       
-      const newImage: TripImage = {
-        src: url,
-        alt,
-        section: 'inclusions',
-        priority: !inclusionImages.length
-      };
+      // Use the createNewTripImage helper
+      const newImage = createNewTripImage(
+        url, 
+        alt, 
+        'inclusions', 
+        undefined, 
+        !inclusionImages.length
+      );
 
       updateField('images', [...tripData.images, newImage]);
       if (fileInputRef.current) {

@@ -1,15 +1,15 @@
 // src/components/admin/tripdetails/tabs/TravelBriefTab.tsx
 'use client';
 
-// src/components/admin/tripdetails/tabs/TravelBriefTab.tsx
 import React, { useState, useRef } from 'react';
-import { LuxuryTripData, TripImage } from '@/types/luxuryTrip.types';
+import { LuxuryTripData } from '@/types/luxuryTrip.types';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Upload, ImagePlus } from 'lucide-react';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { uploadImage } from '@/lib/uploadHelpers';
+import { createNewTripImage } from '@/lib/utils';
 import styles from './TravelBriefTab.module.css';
 
 interface TravelBriefTabProps {
@@ -27,7 +27,8 @@ export default function TravelBriefTab({ tripData, updateField }: TravelBriefTab
     const current = tripData.travelBrief || { 
       description: '', 
       flights: { arrival: '', departure: '', notes: '' },
-      accommodations: [] 
+      accommodations: [],
+      mapUrl: ''
     };
     updateField('travelBrief', { ...current, ...updates });
   };
@@ -71,12 +72,14 @@ export default function TravelBriefTab({ tripData, updateField }: TravelBriefTab
     try {
       const { url, alt } = await uploadImage(file, 'travelBrief');
       
-      const newImage: TripImage = {
-        src: url,
+      // Use the createNewTripImage helper
+      const newImage = createNewTripImage(
+        url,
         alt,
-        section: 'travelBrief',
-        priority: !briefImages.length
-      };
+        'travelBrief',
+        undefined,
+        !briefImages.length
+      );
 
       updateField('images', [...tripData.images, newImage]);
       if (fileInputRef.current) {

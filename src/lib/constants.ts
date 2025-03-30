@@ -1,12 +1,17 @@
 // src/lib/constants.ts
 import type { LuxuryTripData } from '@/types/luxuryTrip.types';
 
+// Get current date for defaults
+const currentDate = new Date().toISOString().split('T')[0];
+
 export const EMPTY_TRIP: LuxuryTripData = {
   id: crypto.randomUUID(), // Generate a temporary ID
   title: '',
   subtitle: '',
   overview: '',
-  date: '',
+  date: currentDate,
+  startDate: currentDate,
+  endDate: currentDate,
   status: 'draft',
   images: [],
   included: [],
@@ -14,6 +19,11 @@ export const EMPTY_TRIP: LuxuryTripData = {
   itinerary: [],
   mapLocations: [],
   terms: '',
+  timing: {
+    startDate: currentDate,
+    endDate: currentDate,
+    location: ''
+  },
   travelBrief: {
     description: '',
     flights: {
@@ -31,7 +41,7 @@ export const EMPTY_TRIP: LuxuryTripData = {
     deposit: 0,
     depositType: 'percentage',
     addOns: [],
-    roomRates: [] // Add the missing roomRates property
+    roomRates: []
   },
   cta: {
     mainButtonText: 'Book Your Journey',

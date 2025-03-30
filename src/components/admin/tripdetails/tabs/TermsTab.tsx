@@ -2,13 +2,14 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { LuxuryTripData, TripImage } from '@/types/luxuryTrip.types';
+import { LuxuryTripData } from '@/types/luxuryTrip.types';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Upload, Trash2, ImagePlus } from 'lucide-react';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { uploadImage } from '@/lib/uploadHelpers';
+import { createNewTripImage } from '@/lib/utils';
 
 const DEFAULT_TERMS = `1. Payment and Booking:
    - 50% deposit required to secure booking
@@ -55,12 +56,14 @@ export default function TermsTab({ tripData, updateField }: TermsTabProps): Reac
     try {
       const { url, alt } = await uploadImage(file, 'terms');
       
-      const newImage: TripImage = {
-        src: url,
-        alt,
-        section: 'terms',
-        priority: !termsImages.length
-      };
+      // Use the createNewTripImage helper
+      const newImage = createNewTripImage(
+        url, 
+        alt, 
+        'terms', 
+        undefined, 
+        !termsImages.length
+      );
 
       updateField('images', [...tripData.images, newImage]);
       if (fileInputRef.current) {

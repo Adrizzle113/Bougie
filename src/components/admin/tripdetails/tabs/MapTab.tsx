@@ -1,11 +1,12 @@
 // src/components/admin/tripdetails/tabs/MapTab.tsx
 import React, { useState, useRef } from 'react';
-import { LuxuryTripData, TripImage } from '@/types/luxuryTrip.types';
+import { LuxuryTripData } from '@/types/luxuryTrip.types';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Plus, Trash2, Upload, ImagePlus, MapPin } from 'lucide-react';
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { uploadImage } from '@/lib/uploadHelpers';
+import { createNewTripImage } from '@/lib/utils';
 import styles from './MapTab.module.css';
 
 interface MapTabProps {
@@ -53,12 +54,8 @@ export default function MapTab({ tripData, updateField }: MapTabProps): React.Re
     try {
       const { url, alt } = await uploadImage(file, 'map');
       
-      const newImage: TripImage = {
-        src: url,
-        alt,
-        section: 'map',
-        priority: !mapImages.length
-      };
+      // Use the createNewTripImage helper
+      const newImage = createNewTripImage(url, alt, 'map', undefined, !mapImages.length);
 
       updateField('images', [...tripData.images, newImage]);
       if (fileInputRef.current) {

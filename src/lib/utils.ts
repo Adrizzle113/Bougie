@@ -3,6 +3,7 @@ import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import type { ItineraryItem, TimelineItem } from '@/types/luxuryTrip.types';
 import { isActivityContent } from '@/types/luxuryTrip.types';
+import type { TripImage, TripImageSection } from '@/types/baseTypes';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -33,3 +34,19 @@ export const formatCurrency = (amount: number): string => {
     maximumFractionDigits: 0,
   }).format(amount);
 };
+
+// New helper function to create trip images with required id
+export const createNewTripImage = (
+  src: string,
+  alt: string,
+  section: string | TripImageSection,
+  dayIndex?: number,
+  priority: boolean = false
+): TripImage => ({
+  id: crypto.randomUUID(),
+  src,
+  alt,
+  section: section as TripImageSection,
+  dayIndex,
+  priority
+});
