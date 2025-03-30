@@ -40,7 +40,9 @@ const nextConfig = {
 
   // Enable experimental features
   experimental: {
-    serverActions: true,
+    serverActions: {
+      allowedOrigins: ['localhost:3000', '*.netlify.app'],
+    },
     typedRoutes: true,
   },
 };
