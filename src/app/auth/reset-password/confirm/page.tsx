@@ -1,17 +1,14 @@
 // src/app/auth/reset-password/confirm/page.tsx
 'use client';
 
-import { Suspense } from 'react';
+import { Suspense, useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import ResetConfirmForm from '@/components/authpages/reset/ResetConfirmationForm';
 import styles from './page.module.css';
 
-type PageProps = {
-  params: { [key: string]: string };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default function ResetPasswordConfirmPage({ searchParams }: PageProps) {
-  const email = typeof searchParams.email === 'string' ? searchParams.email : '';
+export default function ResetPasswordConfirmPage() {
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email') || '';
 
   return (
     <div className={styles.container}>
