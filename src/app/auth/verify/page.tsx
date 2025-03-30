@@ -1,15 +1,15 @@
 // src/app/auth/verify/page.tsx
+'use client';
+
 import { Suspense } from 'react';
+import { useSearchParams } from 'next/navigation';
 import VerifyForm from '@/components/authpages/verify/VerifyForm';
 import ImageSlider from '@/components/authpages/layout/ImageSlider';
 import styles from './page.module.css';
 
-export default function VerifyPage({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | undefined };
-}) {
-  const email = searchParams.email || '';
+export default function VerifyPage() {
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email') || '';
 
   return (
     <>
