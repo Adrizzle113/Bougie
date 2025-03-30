@@ -5,12 +5,13 @@ import { Suspense } from 'react';
 import ResetConfirmForm from '@/components/authpages/reset/ResetConfirmationForm';
 import styles from './page.module.css';
 
-interface PageProps {
-  searchParams: { email?: string };
-}
+type PageProps = {
+  params: { [key: string]: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
 export default function ResetPasswordConfirmPage({ searchParams }: PageProps) {
-  const email = searchParams.email || '';
+  const email = typeof searchParams.email === 'string' ? searchParams.email : '';
 
   return (
     <div className={styles.container}>
